@@ -1,0 +1,4 @@
+//option first value default Jquery
+
+$("#staff_list_detail").val(last_staff_id);
+$("#staff_list_detail").val($("#staff_list_detail option:first").val(""));
