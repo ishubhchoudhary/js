@@ -1,0 +1,33 @@
+<?php
+
+	$conn =  mysqli_connect("localhost", "we2code", "we2code", "testing");
+  
+	if($conn){
+		// echo "Database Connection Successfully";
+
+		$sql = "SELECT * FROM `tbl_employee`";
+		$result = mysqli_query($conn, $sql);
+		$response = array();
+
+		if ($result) {
+			$i = 0;
+			while($row = mysqli_fetch_assoc($result)){
+				$response[$i]['id'] = $row['id'];
+				$response[$i]['name'] = $row['name'];
+				$response[$i]['email'] = $row['email'];
+				$response[$i]['phone'] = $row['phone'];
+				$response[$i]['address'] = $row['address'];
+				$response[$i]['gender'] = $row['gender'];
+				$response[$i]['designation'] = $row['designation'];
+				$response[$i]['age'] = $row['age'];
+				$response[$i]['file'] = $row['file'];
+				$i++;
+				
+			}
+			echo json_encode($response, );
+		}
+	}else{
+		echo "Database Connection Failed";
+	}
+
+?>
